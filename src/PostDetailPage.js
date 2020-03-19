@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 
 const PostDetailPage = () => {
     const [detailedInformation, setDetailedInformation] = useState([]);
@@ -17,9 +17,13 @@ const PostDetailPage = () => {
     }
 
     return (<div>
+        <div><Link className="buttonLook button--blue fLeft button--size" to={'/'}>&lt; Back</Link></div>
         {
             detailedInformation.map((numList,i) => (          
-            <div key={i}>{numList.body}</div>      
+            <div key={i}>
+                <h1>{numList.title}</h1>
+                <p>{numList.body}</p>
+                </div>      
              ))
             }
     </div>);

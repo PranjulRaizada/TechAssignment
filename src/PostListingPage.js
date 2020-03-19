@@ -7,21 +7,17 @@ const PostListingPage = () => {
         fetch('https://jsonplaceholder.typicode.com/posts')
         .then(res => res.json())
         .then(response => setPostListingData(response))
-        },[]
-    )
-   
-    createNewPost(){
-        console.log('ssssssssssss');
-    }
+        },[]);
+
 
     if(postListingData==''){
         return (<div>Loading....</div>)
     }
 
     return (<div>
-        <button onClick={createNewPost}>Create New Post</button>
+        <Link className="buttonLook button--blue fRight" to={'postingForm'}>Create New Post</Link>
         <div>&nbsp;</div>
-        <table>
+        <table className="TFtable"> 
         <thead>
         <tr>
             <th scope="col">Id</th>
@@ -33,11 +29,11 @@ const PostListingPage = () => {
         <tbody>
         {
              postListingData.map((numList,i) =>(          
-                <tr key={i}>                        
+                <tr key={i} className="extAlignLeft">                        
                      <td>{numList.id}</td>
                       <td>{numList.userId}</td>
                       <td>{numList.title}</td>
-                      <td><Link to={'detailPage/'+numList.id}>View</Link> / <Link to={'editPage/'+numList.id}>Edit</Link></td>
+                      <td><Link className='buttonLook button--red' to={'detailPage/'+numList.id}>View</Link>  <Link className='buttonLook button--orange' to={'editPage/'+numList.id}>Edit</Link></td>
                 </tr>
              ))
         }

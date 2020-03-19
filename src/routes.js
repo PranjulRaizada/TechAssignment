@@ -13,6 +13,7 @@ let routes = () =>{
         <Route exact={true} path = "/" component={PostListingPage}/>
         <Route exact={true} path = "/detailPage/:num" component={PostDetailPage}/>
         <Route exact={true} path = "/editPage/:num" component={PostForm}/>
+        <Route exact={true} path = "/postingForm" component={PostForm}/>
         <Route path={"*"}  component={NotFound} />
     </Switch>
     )
