@@ -24,7 +24,7 @@ export function MyForm(props) {
         }
       })
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => {setSuccess('Data is submitted successfully!!!');console.log(json)})
   }
 
   const validateForm = () =>{
@@ -82,7 +82,7 @@ export function MyForm(props) {
     fetch('https://jsonplaceholder.typicode.com/posts?id='+num)
     .then(res => res.json())
     .then(response => {setPostBody(response[0].body);setPostTitle(response[0].title);setUserId(parseInt(response[0].userId))})
-    .then(json => {setSuccess('Data is submitted successfully!!!');console.log(json)})
+    .then(json => {console.log(json)})
     },[num]
   );
 
